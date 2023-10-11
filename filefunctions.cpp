@@ -4,6 +4,23 @@
 
 using namespace std;
 
+void uppercasefunc(const string &line, ofstream &out_file)
+{
+  char currentletter;  
+  for (char a: line) // traverse through each line
+            {
+                if(islower(a))
+                    { 
+                        currentletter = char(toupper(a)); //change to uppercase
+                        out_file << currentletter;
+                    }   
+                else
+                    {
+                        out_file << a; //print all non-alpha characters
+                    }
+            }
+}
+
 int main()
 {
 
@@ -41,18 +58,19 @@ int main()
     
     if (userin == 1)
     {
-        for (char a: line) // traverse through each line
-            {
-                if(islower(a))
-                    { 
-                        currentletter = char(toupper(a)); //change to uppercase
-                        out_file << currentletter;
-                    }   
-                else
-                    {
-                        out_file << a; //print all non-alpha characters
-                    }
-            }
+        // for (char a: line) // traverse through each line
+        //     {
+        //         if(islower(a))
+        //             { 
+        //                 currentletter = char(toupper(a)); //change to uppercase
+        //                 out_file << currentletter;
+        //             }   
+        //         else
+        //             {
+        //                 out_file << a; //print all non-alpha characters
+        //             }
+        //     }
+        uppercasefunc(line, out_file);
 
     }
 
